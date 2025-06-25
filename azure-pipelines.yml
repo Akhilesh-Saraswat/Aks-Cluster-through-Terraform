@@ -1,0 +1,19 @@
+trigger:
+- main
+
+pool:
+  name: Akhi
+
+- task: TerraformInstaller@1
+  inputs:
+    terraformVersion: 'latest'
+- task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        backendServiceArm: 'Boost_connection'
+        backendAzureRmResourceGroupName: 'Akhi'
+        backendAzureRmStorageAccountName: 'jdqjs'
+        backendAzureRmContainerName: 'jsjads'
+        backendAzureRmKey: 'terraform.tfstate'
+
